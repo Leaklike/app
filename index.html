@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TV Show Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <div>
+          <p class="app__eyebrow">TV Show Tracker</p>
+          <h1>Houd je series bij</h1>
+          <p class="app__subtitle">
+            Voeg shows toe, zet je kijkstatus bij en onthoud waar je gebleven bent.
+          </p>
+        </div>
+        <div class="app__summary" id="summary">
+          <div>
+            <span class="summary__label">Totaal</span>
+            <span class="summary__value" data-summary="total">0</span>
+          </div>
+          <div>
+            <span class="summary__label">Kijkt nu</span>
+            <span class="summary__value" data-summary="watching">0</span>
+          </div>
+          <div>
+            <span class="summary__label">Afgerond</span>
+            <span class="summary__value" data-summary="finished">0</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="panel">
+        <h2>Nieuwe show toevoegen</h2>
+        <form id="show-form" class="form">
+          <label>
+            Naam van de show
+            <input type="text" name="title" required placeholder="Bijv. The Bear" />
+          </label>
+          <label>
+            Genre
+            <input type="text" name="genre" placeholder="Drama, Comedy..." />
+          </label>
+          <label>
+            Status
+            <select name="status">
+              <option value="watching">Kijk nu</option>
+              <option value="planned">Nog te starten</option>
+              <option value="finished">Afgerond</option>
+            </select>
+          </label>
+          <label>
+            Seizoen
+            <input type="number" name="season" min="1" placeholder="1" />
+          </label>
+          <label>
+            Aflevering
+            <input type="number" name="episode" min="1" placeholder="1" />
+          </label>
+          <label>
+            Rating
+            <input type="number" name="rating" min="1" max="10" placeholder="1-10" />
+          </label>
+          <label class="form__wide">
+            Notities
+            <textarea name="notes" rows="2" placeholder="Waarom kijk je deze show?"></textarea>
+          </label>
+          <button type="submit" class="button">Toevoegen</button>
+        </form>
+      </section>
+
+      <section class="panel panel--compact">
+        <div class="filters">
+          <div>
+            <label for="filter-status">Filter op status</label>
+            <select id="filter-status">
+              <option value="all">Alles</option>
+              <option value="watching">Kijk nu</option>
+              <option value="planned">Nog te starten</option>
+              <option value="finished">Afgerond</option>
+            </select>
+          </div>
+          <div>
+            <label for="search-input">Zoek in je lijst</label>
+            <input id="search-input" type="search" placeholder="Zoek op naam of genre" />
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel--list">
+        <div class="list__header">
+          <h2>Mijn shows</h2>
+          <button class="button button--ghost" id="clear-shows">Alles wissen</button>
+        </div>
+        <div id="show-list" class="show-list"></div>
+      </section>
+    </main>
+
+    <template id="show-card-template">
+      <article class="show-card">
+        <div class="show-card__title">
+          <h3></h3>
+          <span class="tag"></span>
+        </div>
+        <p class="show-card__meta"></p>
+        <div class="show-card__progress">
+          <span class="progress__label">Voortgang</span>
+          <p class="progress__value"></p>
+        </div>
+        <p class="show-card__notes"></p>
+        <div class="show-card__footer">
+          <div class="rating" aria-label="Rating"></div>
+          <div class="actions">
+            <button class="button button--small" data-action="toggle">Status wijzigen</button>
+            <button class="button button--small button--danger" data-action="remove">Verwijderen</button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
