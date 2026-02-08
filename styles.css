@@ -1,0 +1,264 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f5ff;
+  --panel: #ffffff;
+  --ink: #1c1b29;
+  --muted: #5c5b72;
+  --accent: #5a4ff3;
+  --accent-dark: #4136d6;
+  --line: #e5e3f6;
+  --tag: #efeefe;
+  --danger: #e34b4b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.app {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.app__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.app__eyebrow {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  margin: 0 0 8px;
+  color: var(--accent);
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 2.4rem;
+}
+
+.app__subtitle {
+  margin: 0;
+  max-width: 520px;
+  color: var(--muted);
+}
+
+.app__summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  min-width: 240px;
+}
+
+.summary__label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.summary__value {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.panel--compact {
+  padding: 16px 24px;
+}
+
+.panel--list {
+  padding: 24px;
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.form input,
+.form select,
+.form textarea,
+.filters input,
+.filters select {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+}
+
+.form__wide {
+  grid-column: 1 / -1;
+}
+
+.button {
+  border: none;
+  background: var(--accent);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: var(--accent-dark);
+}
+
+.button--ghost {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--line);
+}
+
+.button--ghost:hover {
+  background: var(--tag);
+}
+
+.button--small {
+  padding: 8px 12px;
+  font-size: 0.8rem;
+}
+
+.button--danger {
+  background: var(--danger);
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.list__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.show-list {
+  display: grid;
+  gap: 16px;
+}
+
+.show-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  display: grid;
+  gap: 12px;
+  background: #fff;
+}
+
+.show-card__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.show-card__meta {
+  margin: 0;
+  color: var(--muted);
+}
+
+.show-card__progress {
+  display: flex;
+  justify-content: space-between;
+  background: var(--tag);
+  padding: 10px 14px;
+  border-radius: 12px;
+  align-items: center;
+}
+
+.progress__label {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.progress__value {
+  margin: 0;
+  font-weight: 600;
+}
+
+.show-card__notes {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.show-card__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tag {
+  background: var(--tag);
+  color: var(--accent);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.rating {
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .app {
+    padding: 32px 16px 60px;
+  }
+
+  .show-card__title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
